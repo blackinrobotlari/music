@@ -219,7 +219,7 @@ async def ee(client, message):
 @authorized_users_only
 async def settings(client, message):
     if message.chat.id in DISABLED_GROUPS:
-        await message.reply("Music Player is Disabled")
+        await message.reply("Musiqi Pleyeri Deaktivdir")
         return
     playing = None
     chat_id = get_chat_id(message.chat)
@@ -233,7 +233,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("No VC instances running in this chat")
+        await message.reply("Bu söhbətdə işləyən VC nümunəsi yoxdur")
 
 
 @Client.on_message(
@@ -296,14 +296,14 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "<b>Now Playing</b> in {}".format(cb.message.chat.title)
-        msg += "\n- " + now_playing
-        msg += "\n- Req by " + by
+        msg = "<b>İndi oynayır</b> {}".format(cb.message.chat.title)
+        msg += "\n- " + indi_oynayır
+        msg += "\n- Tələb edən: " +
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**Queue**"
-            for song in temp:
+            msg += "**Növbəti**"
+            tempdə mahnı üçün:
                 name = song[0]
                 usr = song[1].mention(style="md")
                 msg += f"\n- {name}"
@@ -635,7 +635,7 @@ async def play(_, message: Message):
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-            await lel.edit("Give me something to play")
+            await lel.edit("Mənə oynamaq üçün bir şey ver")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
             toxxt = "**Oynamaq istədiyiniz mahnını seçin 🤓**\n\n"
@@ -650,31 +650,31 @@ async def play(_, message: Message):
             ]
 
             while j < 5:
-                toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
-                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
-                toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
+                toxxt += f"{emojilist[j]} <b>Musiqi adı - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
+                toxxt += f" ╚ <b>Müddət</b> - {results[j]['duration']}\n"
+                toxxt += f" ╚ <b>Görüntüləmə</b> - {results[j]['views']}\n"
+                toxxt += f" ╚ <b>Bəstəkar</b> - {results[j]['channel']}\n\n"
 
                 j += 1
             koyboard = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "1️⃣", callback_data=f"plll 0|{query}|{user_id}"
+                            "🤓¹", callback_data=f"plll 0|{query}|{user_id}"
                         ),
                         InlineKeyboardButton(
-                            "2️⃣", callback_data=f"plll 1|{query}|{user_id}"
+                            "🤓²", callback_data=f"plll 1|{query}|{user_id}"
                         ),
                         InlineKeyboardButton(
-                            "3️⃣", callback_data=f"plll 2|{query}|{user_id}"
+                            "🤓³", callback_data=f"plll 2|{query}|{user_id}"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            "4️⃣", callback_data=f"plll 3|{query}|{user_id}"
+                            "🤓⁴", callback_data=f"plll 3|{query}|{user_id}"
                         ),
                         InlineKeyboardButton(
-                            "5️⃣", callback_data=f"plll 4|{query}|{user_id}"
+                            "🤓⁵", callback_data=f"plll 4|{query}|{user_id}"
                         ),
                     ],
                     [InlineKeyboardButton(text="↩️ Geri", callback_data="cls")],
