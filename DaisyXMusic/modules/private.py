@@ -39,14 +39,14 @@ def _start(client, message):
         parse_mode="markdown",
         reply_markup=InlineKeyboardMarkup(
             [[
-               InlineKeyboardButton("➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+               InlineKeyboardButton("➕ Məni Qrupunuza əlavə edin 🤓", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
             ],
             [
-               InlineKeyboardButton("📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
-               InlineKeyboardButton("💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
+               InlineKeyboardButton("👨🏻‍💻 Sahibi", url=f"https://t.me/{UPDATES_CHANNEL}"),
+               InlineKeyboardButton("⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")
             ],
             [
-               InlineKeyboardButton("🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+               InlineKeyboardButton("💭 Söhbət Gurupu", url=f"https://{SOURCE_CODE}")
            ]]
         ),
         reply_to_message_id=message.message_id,
@@ -56,8 +56,8 @@ def _start(client, message):
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        f"""**🔴 {PROJECT_NAME} is online**""",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("💬 Support Chat", url=f"https://t.me/{SUPPORT_GROUP}")]])
+        f"""**🤓 {PROJECT_NAME} Aktiv**""",
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")]])
     )
 
 
@@ -94,27 +94,27 @@ def help_answer(client, callback_query):
 
 def map(pos):
     if pos == 1:
-        button = [[InlineKeyboardButton(text="▶️", callback_data="help+2")]]
+        button = [[InlineKeyboardButton(text="↩️", callback_data="help+2")]]
     elif pos == len(tr.HELP_MSG) - 1:
         url = f"https://t.me/{SUPPORT_GROUP}"
         button = [[
-                    InlineKeyboardButton("➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                    InlineKeyboardButton("➕ Məni Qrupunuza əlavə edin 🤓", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                   ],
                   [
-                    InlineKeyboardButton(text="📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                    InlineKeyboardButton(text="💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
+                    InlineKeyboardButton(text="👨🏻‍💻 Sahibi", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")
                   ],
                   [
-                    InlineKeyboardButton(text="🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+                    InlineKeyboardButton(text="💭 Söhbət Gurupu", url=f"https://{SOURCE_CODE}")
                   ],
                   [
-                    InlineKeyboardButton(text="◀️", callback_data=f"help+{pos-1}")
+                    InlineKeyboardButton(text="↩️", callback_data=f"help+{pos-1}")
                  ]]
     else:
         button = [
             [
-                InlineKeyboardButton(text="◀️", callback_data=f"help+{pos-1}"),
-                InlineKeyboardButton(text="▶️", callback_data=f"help+{pos+1}"),
+                InlineKeyboardButton(text="↩️", callback_data=f"help+{pos-1}"),
+                InlineKeyboardButton(text="↪️", callback_data=f"help+{pos+1}"),
             ],
         ]
     return button
@@ -123,6 +123,6 @@ def map(pos):
 @Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
 async def ghelp(_, message: Message):
     await message.reply_text(
-        f"""**🙋‍♀️ Hello there! I can play music in the voice chats of telegram groups & channels.**""",
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🟡 Click here for help 🟡", url=f"https://t.me/{BOT_USERNAME}?start")]])
+        f"""**🙋‍♀️ salam! Telegram qruplarının və kanallarının səsli çatlarında musiqi oxuya bilirəm.**""",
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🤓 Yardım üçün bura klikləyin 🤓", url=f"https://t.me/{BOT_USERNAME}?start")]])
     )
