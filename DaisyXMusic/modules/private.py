@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from DaisyXMusic.config import (
     BOT_USERNAME,
     PROJECT_NAME,
-    OPENSOURCE,
+    SOURCE_CODE,
     SUPPORT_GROUP,
     UPDATES_CHANNEL,
 )
