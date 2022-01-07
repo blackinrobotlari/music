@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from DaisyXMusic.config import (
     BOT_USERNAME,
     PROJECT_NAME,
-    OWNER_NAME,
+    OPENSOURCE,
     SUPPORT_GROUP,
     UPDATES_CHANNEL,
 )
@@ -46,17 +46,17 @@ def _start(client, message):
                InlineKeyboardButton("⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")
             ],
             [
-               InlineKeyboardButton("💭 Söhbət Gurupu", url=f"https://{OWNER_NAME}")
+               InlineKeyboardButton("💭 Söhbət Gurupu", url=f"https://t.me/Cat_House_Gurups")
            ]]
         ),
         reply_to_message_id=message.message_id,
     )
 
 
-@Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command("alives") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        f"""**🤓 {PROJECT_NAME} Aktiv**""",
+        f"""**Mən Aktivəm{PROJECT_NAME} 🤓**""",
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")]])
     )
 
@@ -105,7 +105,7 @@ def map(pos):
                     InlineKeyboardButton(text="⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")
                   ],
                   [
-                    InlineKeyboardButton(text="💭 Söhbət Gurupu", url=f"https://{OWNER_NAME}")
+                    InlineKeyboardButton(text="💭 Söhbət Gurupu", url=f"https://t.me/Cat_House_Gurups")
                   ],
                   [
                     InlineKeyboardButton(text="↪️ İrəli", callback_data=f"help+{pos-1}")
