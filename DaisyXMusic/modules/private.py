@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from DaisyXMusic.config import (
     BOT_USERNAME,
     PROJECT_NAME,
-    SOURCE_CODE,
+    OWNER_NAME,
     SUPPORT_GROUP,
     UPDATES_CHANNEL,
 )
@@ -46,7 +46,7 @@ def _start(client, message):
                InlineKeyboardButton("⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")
             ],
             [
-               InlineKeyboardButton("💭 Söhbət Gurupu", url=f"https://{SOURCE_CODE}")
+               InlineKeyboardButton("💭 Söhbət Gurupu", url=f"https://{OWNER_NAME}")
            ]]
         ),
         reply_to_message_id=message.message_id,
@@ -105,16 +105,16 @@ def map(pos):
                     InlineKeyboardButton(text="⚕️ Support", url=f"https://t.me/{SUPPORT_GROUP}")
                   ],
                   [
-                    InlineKeyboardButton(text="💭 Söhbət Gurupu", url=f"https://{SOURCE_CODE}")
+                    InlineKeyboardButton(text="💭 Söhbət Gurupu", url=f"https://{OWNER_NAME}")
                   ],
                   [
-                    InlineKeyboardButton(text="↩️", callback_data=f"help+{pos-1}")
+                    InlineKeyboardButton(text="↪️ İrəli", callback_data=f"help+{pos-1}")
                  ]]
     else:
         button = [
             [
-                InlineKeyboardButton(text="↩️", callback_data=f"help+{pos-1}"),
-                InlineKeyboardButton(text="↪️", callback_data=f"help+{pos+1}"),
+                InlineKeyboardButton(text="↩️ Geri", callback_data=f"help+{pos-1}"),
+                InlineKeyboardButton(text="↪️ İrəli", callback_data=f"help+{pos+1}"),
             ],
         ]
     return button
